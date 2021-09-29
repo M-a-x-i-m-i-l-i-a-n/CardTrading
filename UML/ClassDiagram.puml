@@ -1,0 +1,81 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class AbstractList
+abstract AbstractCollection
+interface List
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+Collection <|- List
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class ArrayList {
+Object[] elementData
+size()
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+@enduml
+
+@startuml
+class User{
+    String username
+    String password
+    Card[] stack
+    Card[5] deck
+    int coins
+    int elo
+
+    void manageDeck()
+}
+
+abstract class Card{
+    enum elementType
+    int dmg
+    String name
+}
+
+class spellCard{
+
+}
+
+class monsterCard{
+    enum type
+}
+
+class Server{
+    void main()
+}
+
+class Client{
+    void main()
+    bool register()
+    bool login()
+    void printOptions()
+
+}
+
+class LoginHandler{
+    bool checkLoginData()
+    bool register()
+}
+
+class GameHandler{
+
+}
+
+User -- Card
+Card <|-- spellCard
+Card <|-- monsterCard
+Server -- LoginHandler
+Server -- GameHandler
+@enduml

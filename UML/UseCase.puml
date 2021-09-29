@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+actor User
+
+package Actions {
+  usecase "Register"
+  usecase "Login"
+  usecase "Buy Cards"
+  usecase "Manage Cards"
+  usecase "Search for a game"
+  usecase "Playing a game"
+  usecase "Compare stats on the scoreboard"
+}
+
+
+User -r-> (Register)
+User -r-> (Login)
+User -d-> (Buy Cards)
+User -r-> (Manage Cards)
+User -d--> (Search for a game)
+User -d--> (Playing a game)
+User -d--> (Compare stats on the scoreboard)
+
+package System{
+  actor LoginHandler
+  actor Shop
+  actor DeckHandler
+  actor LobbyHandler
+  actor GameHandler
+  actor Scoreboard
+}
+
+LoginHandler -l-> (Register)
+LoginHandler -l-> (Login)
+Shop -u-> (Buy Cards)
+DeckHandler -u-> (Manage Cards)
+LobbyHandler -u--> (Search for a game)
+GameHandler -u--> (Playing a game)
+Scoreboard ---> (Compare stats on the scoreboard)
+@enduml
+
